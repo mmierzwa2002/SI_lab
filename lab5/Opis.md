@@ -1,15 +1,14 @@
----
-
 ### Porównanie architektur LSTM oraz GRU (Wprowadzenie)
 
 Przed przystąpieniem do szczegółowych eksperymentów z parametrami, dokonano bezpośredniego porównania dwóch podstawowych typów sieci rekurencyjnych: LSTM oraz GRU, przy zachowaniu domyślnej struktury podanej w instrukcji (4 warstwy ukryte po 50 jednostek, optymalizator RMSprop).
 
 | Architektura sieci | Błąd RMSE (Zbiór testowy) | Średni czas trenowania jednej epoki (szacunkowo) |
-| :--- | :---: | :---: |
-| **GRU** | 2.67 | ~1.2 s / epoka (Szybciej) |
-| **LSTM** | 3.39 | ~1.6 s / epoka (Wolniej) |
+| :----------------- | :-----------------------: | :----------------------------------------------: |
+| **GRU**            |           2.67            |            ~1.2 s / epoka (Szybciej)             |
+| **LSTM**           |           3.39            |             ~1.6 s / epoka (Wolniej)             |
 
 #### Wizualizacja i wyniki z konsoli:
+
 ![Wynik dla LSTM](wyniki/LSTM_1.png)
 ![Wynik dla GRU](wyniki/GRU_1.png)
 
@@ -18,9 +17,10 @@ Przed przystąpieniem do szczegółowych eksperymentów z parametrami, dokonano 
 1. **Efektywność i dokładność (Błąd RMSE):** W tym teście sieć GRU osiągnęła znacznie lepszy (niższy) błąd RMSE (2.67) w porównaniu do sieci LSTM (3.39). Wynika to z faktu, że prostsza struktura GRU przy domyślnej, dość głębokiej architekturze (aż 4 warstwy) była bardziej odporna na utratę stabilności gradientu. LSTM, posiadając więcej wag do nastrojenia, przy domyślnych parametrach łatwiej wpadał w lokalne minima lub wykazywał tendencję do lekkiego przeuczenia na szumie giełdowym.
 
 2. **Prędkość nauki:**
-Podczas treningu zaobserwowano wyraźną przewagę prędkości na korzyść sieci GRU. Czas obliczeń dla jednej epoki w przypadku GRU był zauważalnie krótszy niż dla LSTM. Zjawisko to ma bezpośrednie uzasadnienie w budowie matematycznej obu komórek:
-* **LSTM** posiada osobną komórkę pamięci ($c_t$) oraz aż trzy bramki regulujące przepływ informacji: wejściową, wyjściową i zapominania. Wymaga to wykonywania większej liczby operacji macierzowych w każdym kroku czasowym.
-* **GRU** eliminuje osobną komórkę pamięci i bezpośrednio zarządza stanami ukrytymi za pomocą tylko dwóch bramek: resetowania oraz aktualizacji. Mniejsza liczba parametrów (wag) do przeliczenia w sieci GRU bezpośrednio przekłada się na mniejsze obciążenie procesora/karty graficznej i znacznie szybszy czas uczenia modelu przy każdej epoce.
+   Podczas treningu zaobserwowano wyraźną przewagę prędkości na korzyść sieci GRU. Czas obliczeń dla jednej epoki w przypadku GRU był zauważalnie krótszy niż dla LSTM. Zjawisko to ma bezpośrednie uzasadnienie w budowie matematycznej obu komórek:
+
+- **LSTM** posiada osobną komórkę pamięci ($c_t$) oraz aż trzy bramki regulujące przepływ informacji: wejściową, wyjściową i zapominania. Wymaga to wykonywania większej liczby operacji macierzowych w każdym kroku czasowym.
+- **GRU** eliminuje osobną komórkę pamięci i bezpośrednio zarządza stanami ukrytymi za pomocą tylko dwóch bramek: resetowania oraz aktualizacji. Mniejsza liczba parametrów (wag) do przeliczenia w sieci GRU bezpośrednio przekłada się na mniejsze obciążenie procesora/karty graficznej i znacznie szybszy czas uczenia modelu przy każdej epoce.
 
 ### A. Poeksperymentuj z ilością jednostek LSTM
 
