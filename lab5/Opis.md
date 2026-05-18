@@ -9,8 +9,8 @@ W tym kroku sprawdzono wpływ liczby neuronów w warstwach ukrytych na dokładno
 | **250 jednostek** |                2.88                |
 
 ![Wynik dla 25 jednostek](wyniki/A_25jednostek.png)
-![Wynik dla 100 jednostek](wyniki/B_100jednostek.png)
-![Wynik dla 250 jednostek](wyniki/C_250jednostek.png)
+![Wynik dla 100 jednostek](wyniki/A_100jednostek.png)
+![Wynik dla 250 jednostek](wyniki/A_250jednostek.png)
 
 #### Obserwacje i wnioski:
 
