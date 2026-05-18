@@ -10,8 +10,8 @@ Przed przystąpieniem do szczegółowych eksperymentów z parametrami, dokonano 
 | **LSTM** | 3.39 | ~1.6 s / epoka (Wolniej) |
 
 #### Wizualizacja i wyniki z konsoli:
-![Wynik dla LSTM](LSTM_1.png)
-![Wynik dla GRU](GRU_1.png)
+![Wynik dla LSTM](wyniki/LSTM_1.png)
+![Wynik dla GRU](wyniki/GRU_1.png)
 
 #### Obserwacje i wnioski:
 
