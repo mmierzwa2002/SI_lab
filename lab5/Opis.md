@@ -10,6 +10,7 @@ Przed przystąpieniem do szczegółowych eksperymentów z parametrami, dokonano 
 #### Wizualizacja i wyniki z konsoli:
 
 ![Wynik dla LSTM](wyniki/LSTM_1.png)
+
 ![Wynik dla GRU](wyniki/GRU_1.png)
 
 #### Obserwacje i wnioski:
@@ -84,7 +85,7 @@ Przetestowano działanie alternatywnych funkcji straty, którymi model kieruje s
 
 ![Wynik dla Huber](wyniki/C_Huber.png)
 
-![Wynik dla Log Cosh](wyniki/C_LogCosh_.png)
+![Wynik dla Log Cosh](wyniki/C_LogCosh.png)
 
 #### Obserwacje i wnioski:
 
@@ -122,7 +123,7 @@ W tym punkcie zbadano zachowanie sieci z włączonym oraz wyłączonym mechanizm
 | Konfiguracja treningu          | Liczba przetrenowanych epok | Błąd RMSE |
 | :----------------------------- | :-------------------------: | :-------: |
 | **Bez Early Stopping**         |       50 (wymuszone)        |   2.93    |
-| **Z domyślnym Early Stopping** |             7-8             |   5.00    |
+| **Z domyślnym Early Stopping** |            7-12             |   5.00    |
 
 #### Wizualizacja i wyniki z konsoli:
 
@@ -135,13 +136,13 @@ W tym punkcie zbadano zachowanie sieci z włączonym oraz wyłączonym mechanizm
 Eksperyment pokazał, jak kluczowe jest prawidłowe dobranie parametrów Early Stopping.
 
 1. **Bez Early Stopping:** Model ślepo przetrenował wszystkie zadane 50 epok, osiągając stabilny, ale przeciętny błąd RMSE na poziomie 2.93.
-2. **Z domyślnym Early Stopping:** Przy agresywnym monitorowaniu i niskiej cierpliwości (`patience=5`), trening zakończył się gwałtownie już po zaledwie **7-8 epokach**. Skutkiem tego był fatalny błąd RMSE wynoszący aż 5.00. Przyczyną tak szybkiego zatrzymania była niestabilność danych giełdowych – funkcja straty na zbiorze walidacyjnym zanotowała chwilowy, naturalny wzrost przez kilka epok z rzędu. Algorytm zinterpretował to jako brak dalszych postępów i przedwcześnie przerwał proces, zostawiając sieć kompletnie "niedouczoną" (_underfitting_).
+2. **Z domyślnym Early Stopping:** Przy agresywnym monitorowaniu i niskiej cierpliwości (`patience=5`), trening zakończył się gwałtownie już po zaledwie **7-12 epokach**. Skutkiem tego był fatalny błąd RMSE wynoszący aż 5.00. Przyczyną tak szybkiego zatrzymania była niestabilność danych giełdowych – funkcja straty na zbiorze walidacyjnym zanotowała chwilowy, naturalny wzrost przez kilka epok z rzędu. Algorytm zinterpretował to jako brak dalszych postępów i przedwcześnie przerwał proces, zostawiając sieć kompletnie "niedouczoną" (_underfitting_).
 
 ---
 
 ### F. Uzyskaj ostateczny błąd RMSE poniżej 2.0
 
-W celu przełamania bariery błędu RMSE < 2.0, zastosowano modyfikację architektury modelu, optymalizatora oraz parametrów treningu. Wyniki z tego kroku stanowią jednocześnie optymalne rozwiązanie opisane szczegółowo w punkcie G.
+W celu uzyskania błędu RMSE < 2.0, zastosowano modyfikację architektury modelu, optymalizatora oraz parametrów treningu. Wyniki z tego kroku stanowią jednocześnie optymalne rozwiązanie opisane szczegółowo w punkcie G.
 
 ---
 
@@ -160,7 +161,7 @@ Po przeprowadzeniu całej serii eksperymentów (podpunkty A-F), najlepszą konfi
 
 #### Wizualizacja i wyniki z konsoli końcowej:
 
-![Najepszy wynik konfiguracja](F_konfiguracja.png)1
+![Najepszy wynik konfiguracja](F_konfiguracja.png)
 ![Najlepszy wynik](F_Wynik.png)
 
 #### Uzasadnienie:
