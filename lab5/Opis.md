@@ -161,8 +161,9 @@ Po przeprowadzeniu całej serii eksperymentów (podpunkty A-F), najlepszą konfi
 
 #### Wizualizacja i wyniki z konsoli końcowej:
 
-![Najepszy wynik konfiguracja](F_konfiguracja.png)
-![Najlepszy wynik](F_Wynik.png)
+![Najepszy wynik konfiguracja](wyniki/F_konfiguracja.png)
+
+![Najlepszy wynik](wyniki/F_Wynik.png)
 
 #### Uzasadnienie:
 
